@@ -9,7 +9,8 @@ import { deleteTask, updateTask, addTask } from "../../services/api.service";
 import { TaskForm } from "../../components/TaskForm";
 import { Filter } from "../../components/Filter";
 import { TaskList } from "../../components/TaskList";
-import { statusList } from "../../services/constants";
+import { statusList } from "../../utils/constants";
+import { Header } from "../../components/Header";
 
 export default function Home() {
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -71,6 +72,7 @@ export default function Home() {
   return (
     <RequiresAuth>
       <Container>
+        <Header />
         <AddTaskContainer>
           <AddTask onClick={() => setShowCreateModal(true)}>
             <div>Add a Task</div>
