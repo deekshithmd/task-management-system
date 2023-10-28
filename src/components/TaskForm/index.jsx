@@ -68,7 +68,7 @@ export const TaskForm = ({
         width="100px"
         borderRadius="15px"
         fontSize="16px"
-        onClick={handleTask}
+        onClick={() => handleTask()}
       >
         {taskUpdateType === "create" ? "Create" : "Update"}
       </Button>

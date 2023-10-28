@@ -29,7 +29,6 @@ export const signup = async ({ firstName, lastName, email, password }) => {
 };
 
 export const getTasks = async ({ token }) => {
-  console.log("token in get", token);
   try {
     const response = await axios.get(`${API_ENDPOINT}/tasks`, {
       headers: { Authorization: token },
@@ -63,7 +62,6 @@ export const deleteTask = async ({ id, token }) => {
 };
 
 export const updateTask = async ({ token, task }) => {
-  console.log("upd", task);
   try {
     const response = await axios.put(
       `${API_ENDPOINT}/tasks/${task?._id}`,

@@ -7,12 +7,15 @@ import { useData } from "../../Contexts/DataContext";
 
 export const Header = () => {
   const navigate = useNavigate();
-  const { token, setToken } = useData();
+  const { token, setToken, setTaskList, setUserData } = useData();
 
   const handleLogout = () => {
     localStorage.removeItem("userToken");
     setToken("");
+    setTaskList([]);
+    setUserData({});
   };
+
   return (
     <HeaderContainer>
       <Logo onClick={() => navigate("/")}>MyTasks</Logo>
