@@ -9,6 +9,7 @@ import {
   Option,
 } from "../Reusables/SharedStyling";
 import Close from "../../assets/close.svg";
+import { ButtonComponent } from "./Button";
 
 export const TaskForm = ({
   showTaskModal,
@@ -64,14 +65,10 @@ export const TaskForm = ({
           </Option>
         ))}
       </StatusSelector>
-      <Button
-        width="100px"
-        borderRadius="15px"
-        fontSize="16px"
-        onClick={() => handleTask()}
-      >
-        {taskUpdateType === "create" ? "Create" : "Update"}
-      </Button>
+      <ButtonComponent
+        handleTask={handleTask}
+        taskUpdateType={taskUpdateType}
+      />
     </ModalInnerContainer>
   );
 };

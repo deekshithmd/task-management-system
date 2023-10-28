@@ -1,6 +1,5 @@
-import { Button, Icon } from "../../Reusables/SharedStyling";
-import Delete from "../../../assets/delete.svg";
-import Edit from "../../../assets/edit.svg";
+import { DeleteButton } from "../DeleteButton";
+import { UpdateButton } from "../UpdateButton";
 import styled from "styled-components";
 
 export const TaskCard = ({
@@ -35,30 +34,13 @@ export const TaskCard = ({
       </TaskTextContainer>
       <ActionContainer>
         {task?.status !== "done" && (
-          <Button
-            width="200px"
-            borderRadius="15px"
-            fontSize="14px"
-            hoverColor="#fcebc5"
-            onClick={() => {
-              handleTask(task);
-              handleModal(true);
-            }}
-          >
-            Update this task
-            <Icon src={Edit} height={20} width={20} alt="delete" />
-          </Button>
+          <UpdateButton
+            handleUpdate={handleTask}
+            task={task}
+            handleModal={handleModal}
+          />
         )}
-        <Button
-          width="200px"
-          borderRadius="15px"
-          fontSize="14px"
-          hoverColor="#f7c1c1"
-          onClick={() => handleDelete(task)}
-        >
-          Delete this task
-          <Icon src={Delete} height={20} width={20} alt="delete" />
-        </Button>
+        <DeleteButton handleDelete={handleDelete} task={task} />
       </ActionContainer>
     </Task>
   );
