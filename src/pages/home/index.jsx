@@ -4,8 +4,6 @@ import { useData } from "../../Contexts/DataContext";
 import { Icon } from "../../components/Reusables/SharedStyling";
 import RequiresAuth from "../../components/RequiresAuth";
 import Add from "../../assets/add.svg";
-import { PokemonList } from "../../components/List";
-
 import { Modal } from "../../components/Reusables/Modal/Modal";
 import { deleteTask, updateTask, addTask } from "../../services/api.service";
 import { TaskForm } from "../../components/TaskForm";
@@ -73,7 +71,6 @@ export default function Home() {
   return (
     <RequiresAuth>
       <Container>
-        <PokemonList />
         <AddTaskContainer>
           <AddTask onClick={() => setShowCreateModal(true)}>
             <div>Add a Task</div>
