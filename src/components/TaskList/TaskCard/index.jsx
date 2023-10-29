@@ -31,7 +31,7 @@ export const TaskCard = ({
         <Text
           fontSize="20px"
           fontWeight="600"
-          textColor="#000000"
+          textcolor="#000000"
           margin="3px 0px"
         >
           {task?.title}
@@ -39,7 +39,7 @@ export const TaskCard = ({
         <Text
           fontSize="16px"
           fontWeight="400"
-          textColor="#000000"
+          textcolor="#000000"
           margin="5px 0px 15px 0px"
         >
           {task?.description}

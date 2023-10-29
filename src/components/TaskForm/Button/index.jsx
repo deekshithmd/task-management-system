@@ -11,7 +11,7 @@ export const ButtonComponent = ({ handleTask, taskUpdateType }) => {
       border="none"
       background="#97a1f7"
       hover="#3145f5"
-      hoverTextColor="#fff"
+      hovertextcolor="#fff"
       padding="10px 20px"
       onClick={() => handleTask()}
     >

@@ -21,18 +21,18 @@ import Add from "../../assets/add.svg";
 export default function Home() {
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
-  const [task, setTask] = useState({
-    title: "",
-    description: "",
-    status: "todo",
-  });
   const [taskToEdit, setTaskToEdit] = useState();
+  const [filtered, setFiltered] = useState([]);
   const [selectedFilter, setSelectedFilter] = useState({
     id: 1,
     name: "All",
     value: "all",
   });
-  const [filtered, setFiltered] = useState([]);
+  const [task, setTask] = useState({
+    title: "",
+    description: "",
+    status: "todo",
+  });
   const { taskList, setTaskList, token } = useData();
 
   const filters = [{ id: 4, label: "All", value: "all" }, ...statusList];

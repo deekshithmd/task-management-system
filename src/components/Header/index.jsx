@@ -1,17 +1,23 @@
 // package imports
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 // component imports
-import { Button } from "../Reusables/SharedStyling";
+import { Button, Icon } from "../Reusables/SharedStyling";
 import { useNavigate } from "react-router-dom";
 import { useData } from "../../Contexts/DataContext";
+import { Profile } from "../Profile";
+
+// asset imports
+import ProfileIcon from "../../assets/profile-icon.svg";
 
 // Header component
 export const Header = () => {
+  const [showProfile, setShowProfile] = useState(false);
   const navigate = useNavigate();
-  const { token, setToken, setTaskList, setUserData } = useData();
+  const { token, setToken, setTaskList, setUserData, userData } = useData();
 
+  // function to handle logout
   const handleLogout = () => {
     sessionStorage.removeItem("userToken");
     setToken("");
@@ -22,6 +28,7 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <Logo onClick={() => navigate("/")}>MyTasks</Logo>
+      {showProfile && <Profile userDetails={userData} />}
       {!token ? (
         <Button
           fontSize="16px"
@@ -35,12 +42,18 @@ export const Header = () => {
         <Button
           fontSize="16px"
           hover="#fc6060"
-          hoverTextColor="#fff"
+          hovertextcolor="#fff"
           onClick={() => handleLogout()}
         >
           Logout
         </Button>
       )}
+      <ProfileImage
+        src={ProfileIcon}
+        height="30px"
+        width="30px"
+        onClick={() => setShowProfile(!showProfile)}
+      />
     </HeaderContainer>
   );
 };
@@ -69,4 +82,9 @@ const Logo = styled.span`
   font-size: 36px;
   font-weight: 700;
   cursor: pointer;
+`;
+
+const ProfileImage = styled(Icon)`
+  position: absolute;
+  right: 100px;
 `;

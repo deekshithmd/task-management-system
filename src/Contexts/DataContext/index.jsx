@@ -17,6 +17,7 @@ const DataProvider = ({ children }) => {
       if (token) {
         const res = await getTasks({ token });
         setTaskList(res?.tasks);
+        setUserData(res);
       }
     })();
   }, [token]);

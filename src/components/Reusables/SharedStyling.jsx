@@ -16,7 +16,7 @@ export const Button = styled.button`
   gap: 2px;
   &:hover {
     background: ${(props) => props.hover || "#aed7fc"};
-    color: ${(props) => props.hoverTextColor || "#2b2b29"};
+    color: ${(props) => props.hovertextcolor || "#2b2b29"};
     cursor: pointer;
   }
 `;
@@ -30,7 +30,7 @@ export const Icon = styled.img`
 export const Text = styled.p`
   font-size: ${(props) => props.fontSize || "12px"};
   font-weight: ${(props) => props.fontWeight || "400"};
-  color: ${(props) => props.textColor || "#0000"};
+  color: ${(props) => props.textcolor || "#0000"};
   margin: ${(props) => props.margin || "20px 0px"};
   text-decoration: ${(props) => props.textDecoration || "none"};
   overflow-wrap: anywhere;
@@ -48,7 +48,7 @@ export const ModalInnerContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 25px 15px;
+  padding: 25px 20px;
   row-gap: 15px;
   background: white;
   border-radius: 15px;
@@ -80,6 +80,10 @@ export const StatusSelector = styled.select`
 
 export const Option = styled.option`
   padding: 5px 20px;
+  &:checked {
+    background-color: #0458de;
+    color: #fff;
+  }
 `;
 
 export const ErrorMessage = styled.span`

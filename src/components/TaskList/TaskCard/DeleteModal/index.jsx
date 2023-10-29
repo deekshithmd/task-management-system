@@ -17,7 +17,7 @@ export const DeleteModal = ({ handleDelete, handleDeleteModal }) => {
         <Text
           fontSize="18px"
           fontWeight="600"
-          textColor="#00000"
+          textcolor="#00000"
           margin="0px 0px 20px"
         >
           Are you sure to delete this task?
@@ -40,7 +40,7 @@ export const DeleteModal = ({ handleDelete, handleDeleteModal }) => {
             color="#ffff"
             border="none"
             hover="#fc6060"
-            hoverTextColor="#ffff"
+            hovertextcolor="#ffff"
             onClick={() => {
               handleDeleteModal();
               handleDelete();
