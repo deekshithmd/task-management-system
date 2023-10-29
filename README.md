@@ -2,16 +2,28 @@
 
 This is a task management system where user can create new task by providing title, description and current status of the task, once it is created it will be shown in the board, then when task is in todo or in progress state user can update the task, once it is moved to completed/done state then user can't edit it but he can delete the task from the board.
 
+## Frontend : [https://github.com/deekshithmd/task-management-system](https://github.com/deekshithmd/task-management-system)
+## Backend : [https://github.com/deekshithmd/task-management-system-backend](https://github.com/deekshithmd/task-management-system-backend)
+
 ## Steps to run the application
 
-1. clone the repo `git clone https://github.com/deekshithmd/task-management-system.git`
-2. run `npm install` to install all depandencies
-3. run `npm run start` to start the application
-4. Application will run at port `3000`
+### Backend setup
+1. Clone the repo ```git clone https://github.com/deekshithmd/task-management-system-backend.git```
+2. Run ```yarn install``` to install all dependencies
+3. Run ```yarn run dev``` to run the app
+4. Now backend should run at port ```8000```
+5. Once the backend is up and running at port ```8000```, proceed with front end setup which uses backend running at port ```8000```
+6. To run tests run ```yarn run test``` which will run all tests.
+### Frontend setup
+1. After backend setup, backend runs at port ```8000``` i.e at ```http://localhost:8000```
+2. Now clone the repo ```git clone https://github.com/deekshithmd/task-management-system.git```
+3. Run `npm install` to install all dependencies
+4. Run `npm run start` to start the application
+5. Now application will start running at port ```3000``` using backend service running at port ```8000```
 
 ### Techstack used
-
-HTML, CSS, Javascript, ReactJS and Styled Components.
+Backend: NodeJS, ExpressJS, Mongoose, MongoDB, Jest, SuperTest.
+Frontend: HTML, CSS, Javascript, ReactJS and Styled Components, React Testing Library.
 
 ### Steps to use the application
 
@@ -23,4 +35,5 @@ HTML, CSS, Javascript, ReactJS and Styled Components.
 6. If user clicks on Update button modal will be opened with prefilled task details, now user can edit the task details like title,description and status, once he clicks on `Update` button task will be updated and shown in the task board
 7. If user clicks on Delete button, modal will open asking whether the user sure to delete the task, if he clicks on `Cancel` modal will be closed, if he clicks on `Delete` then task will get deleted and modal will get closed.
 8. Filter provided at the top of the task board, user can filter tasks based on the requirement, like All for showing all tasks and rest of the options to show tasks based on status.
-9. Once user clicks on `Logout` button user will be redirected to login page.
+9. Profile icon provided in the header is for Profile section, one user clicks on that icon Profile section opens containing user details and task statistics.
+10. Once user clicks on `Logout` button user will be redirected to login page.
