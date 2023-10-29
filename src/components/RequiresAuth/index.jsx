@@ -1,14 +1,18 @@
+// package imports
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+// component imports
 import { useData } from "../../Contexts/DataContext";
 
-// Testing whether user authenticated or not
+// Component to test whether user logged in or not
 const RequiresAuth = ({ children }) => {
   const { token, setToken } = useData();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedToken = localStorage.getItem("userToken");
+    // if token exists show homepage or redirect to login page
+    const storedToken = sessionStorage.getItem("userToken");
     if (token || storedToken) {
       setToken(storedToken);
       navigate("/");

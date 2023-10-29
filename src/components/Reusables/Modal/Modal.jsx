@@ -1,6 +1,8 @@
+// package imports
 import React from "react";
 import styled from "styled-components";
 
+// Modal component
 export const Modal = ({ children }) => {
   return <ModalContainer>{children}</ModalContainer>;
 };

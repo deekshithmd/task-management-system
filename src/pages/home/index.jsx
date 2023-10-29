@@ -1,9 +1,11 @@
+// package imports
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+
+// components import
 import { useData } from "../../Contexts/DataContext";
 import { Icon } from "../../components/Reusables/SharedStyling";
 import RequiresAuth from "../../components/RequiresAuth";
-import Add from "../../assets/add.svg";
 import { Modal } from "../../components/Reusables/Modal/Modal";
 import { deleteTask, updateTask, addTask } from "../../services/api.service";
 import { TaskForm } from "../../components/TaskForm";
@@ -12,6 +14,10 @@ import { TaskList } from "../../components/TaskList";
 import { statusList } from "../../utils/constants";
 import { Header } from "../../components/Header";
 
+// assets import
+import Add from "../../assets/add.svg";
+
+// Home/Main page
 export default function Home() {
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -48,6 +54,8 @@ export default function Home() {
       const response = await addTask({ task: task, token });
       setTaskList(response?.tasks);
       setShowCreateModal(false);
+
+      // resetting after creation
       setTask({
         title: "",
         description: "",
@@ -69,6 +77,7 @@ export default function Home() {
     setShowEditModal(false);
   };
 
+  // Home page component rendering
   return (
     <RequiresAuth>
       <Container>
@@ -121,6 +130,7 @@ export default function Home() {
   );
 }
 
+// Styled components
 const Container = styled.div`
   width: 100%;
   box-sizing: border-box;

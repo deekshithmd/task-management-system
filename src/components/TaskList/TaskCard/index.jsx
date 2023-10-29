@@ -1,7 +1,11 @@
-import { DeleteButton } from "../DeleteButton";
-import { UpdateButton } from "../UpdateButton";
+// package imports
 import styled from "styled-components";
 
+// component imports
+import { DeleteButton } from "../DeleteButton";
+import { UpdateButton } from "../UpdateButton";
+
+// TaskCard component
 export const TaskCard = ({
   task,
   statusList,
@@ -32,6 +36,7 @@ export const TaskCard = ({
           Status: {statusList.find((st) => st?.value === task?.status)?.label}
         </span>
       </TaskTextContainer>
+      {/* action buttons */}
       <ActionContainer>
         {task?.status !== "done" && (
           <UpdateButton

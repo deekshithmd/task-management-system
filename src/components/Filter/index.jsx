@@ -1,5 +1,7 @@
+// package imports
 import styled from "styled-components";
 
+// Filter component
 export const Filter = ({ filters, handleSelectedFilter, selectedFilter }) => {
   return (
     <FilterContainer>

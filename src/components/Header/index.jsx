@@ -1,16 +1,19 @@
-"use client";
+// package imports
 import React from "react";
 import styled from "styled-components";
+
+// component imports
 import { Button } from "../Reusables/SharedStyling";
 import { useNavigate } from "react-router-dom";
 import { useData } from "../../Contexts/DataContext";
 
+// Header component
 export const Header = () => {
   const navigate = useNavigate();
   const { token, setToken, setTaskList, setUserData } = useData();
 
   const handleLogout = () => {
-    localStorage.removeItem("userToken");
+    sessionStorage.removeItem("userToken");
     setToken("");
     setTaskList([]);
     setUserData({});

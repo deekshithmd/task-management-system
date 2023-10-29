@@ -1,7 +1,10 @@
+// package import
 import axios from "axios";
 
+// api endpoint
 const API_ENDPOINT = "http://localhost:8000/api";
 
+// login api call
 export const login = async ({ email, password }) => {
   try {
     const response = await axios.post(`${API_ENDPOINT}/login`, {
@@ -14,6 +17,7 @@ export const login = async ({ email, password }) => {
   }
 };
 
+//signup api call
 export const signup = async ({ firstName, lastName, email, password }) => {
   try {
     const response = await axios.post(`${API_ENDPOINT}/signup`, {
@@ -28,6 +32,7 @@ export const signup = async ({ firstName, lastName, email, password }) => {
   }
 };
 
+// api call to get tasks
 export const getTasks = async ({ token }) => {
   try {
     const response = await axios.get(`${API_ENDPOINT}/tasks`, {
@@ -39,6 +44,7 @@ export const getTasks = async ({ token }) => {
   }
 };
 
+// api call to ad task
 export const addTask = async ({ task, token }) => {
   try {
     const response = await axios.post(`${API_ENDPOINT}/tasks`, task, {
@@ -50,6 +56,7 @@ export const addTask = async ({ task, token }) => {
   }
 };
 
+// api call to delete a task
 export const deleteTask = async ({ id, token }) => {
   try {
     const response = await axios.delete(`${API_ENDPOINT}/tasks/${id}`, {
@@ -61,6 +68,7 @@ export const deleteTask = async ({ id, token }) => {
   }
 };
 
+// api call to update a task
 export const updateTask = async ({ token, task }) => {
   try {
     const response = await axios.put(

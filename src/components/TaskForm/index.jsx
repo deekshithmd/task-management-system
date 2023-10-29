@@ -1,3 +1,7 @@
+//package imports
+import React from "react";
+
+//component imports
 import {
   Icon,
   Text,
@@ -10,6 +14,7 @@ import {
 import Close from "../../assets/close.svg";
 import { ButtonComponent } from "./Button";
 
+// TaskForm component to create and update tasks
 export const TaskForm = ({
   showTaskModal,
   task,
@@ -49,6 +54,7 @@ export const TaskForm = ({
           setTask((prev) => ({ ...prev, description: e.target.value }))
         }
       />
+      {/* status selection */}
       <StatusSelector
         onChange={(v) => {
           setTask((prev) => ({ ...prev, status: v.target.value }));
@@ -64,6 +70,7 @@ export const TaskForm = ({
           </Option>
         ))}
       </StatusSelector>
+      {/* action button */}
       <ButtonComponent
         handleTask={handleTask}
         taskUpdateType={taskUpdateType}

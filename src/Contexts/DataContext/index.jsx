@@ -1,9 +1,13 @@
+// package imports
 import React, { useState, useContext, createContext, useEffect } from "react";
+
+// handler function import
 import { getTasks } from "../../services/api.service";
 
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
+  // global states
   const [taskList, setTaskList] = useState([]);
   const [token, setToken] = useState("");
   const [userData, setUserData] = useState({});

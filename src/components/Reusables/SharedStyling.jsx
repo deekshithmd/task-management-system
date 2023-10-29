@@ -1,9 +1,11 @@
+// package imports
 import styled from "styled-components";
 
+// Reusable Styled components
 export const Button = styled.button`
   width: ${(props) => props.width || "auto"};
   padding: ${(props) => props.padding || "5px 10px"};
-  border-radius: ${(props) => props.borderRadius || "5px"};
+  border-radius: ${(props) => props.radius || "5px"};
   border: ${(props) => props.border || "1px solid black"};
   font-size: ${(props) => props.fontSize || "12px"};
   display: flex;
@@ -11,7 +13,7 @@ export const Button = styled.button`
   justify-content: ${(props) => props.justifyContent || "center"};
   gap: 2px;
   &:hover {
-    background: ${(props) => props.hoverColor || "#aed7fc"};
+    background: ${(props) => props.hover || "#aed7fc"};
     color: ${(props) => props.hoverTextColor || "#2b2b29"};
     cursor: pointer;
   }

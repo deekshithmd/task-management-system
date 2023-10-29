@@ -1,6 +1,9 @@
+// package imports
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+
+// component imports
 import {
   Button,
   Text,
@@ -9,6 +12,7 @@ import {
 import { login } from "../../services/api.service";
 import { useData } from "../../Contexts/DataContext";
 
+// Login page
 export default function LoginPage() {
   const { setToken, setUserData } = useData();
   const [userDetails, setUserDetails] = useState({
@@ -20,25 +24,32 @@ export default function LoginPage() {
   // handling login
   const handleLogin = async (e) => {
     e.preventDefault();
+    // login api call
     const res = await login({
       email: userDetails.email,
       password: userDetails.password,
     });
     if (res?.token) {
-      localStorage.setItem("userToken", res?.token);
+      // if user exists then storing token in sessionStorage to handle page refresh
+      sessionStorage.setItem("userToken", res?.token);
       setToken(res.token);
       setUserData({
         name: `${res.firstName} ${res.lastName}`,
         email: res.email,
       });
+
+      // restting user details after login
       setUserDetails({
         username: "",
         password: "",
       });
+
+      // navigate to home page after login
       navigate("/");
     }
   };
 
+  // Login page rendering
   return (
     <Container>
       <LoginContainer onSubmit={handleLogin}>
@@ -66,10 +77,10 @@ export default function LoginPage() {
           />
         </label>
         <Button
-          borderRadius="15px"
+          radius="15px"
           padding="8px 15px"
           width="100px"
-          hoverColor="#e6faec"
+          hover="#e6faec"
           fontSize="18px"
           type="submit"
         >
@@ -84,6 +95,7 @@ export default function LoginPage() {
   );
 }
 
+// Styled components
 const Container = styled.div`
   height: 100vh;
   width: 100vw;

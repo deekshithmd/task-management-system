@@ -1,6 +1,10 @@
-import { TaskCard } from "./TaskCard";
+// package imports
 import styled from "styled-components";
 
+// component import
+import { TaskCard } from "./TaskCard";
+
+// TaskList component
 export const TaskList = ({
   filteredData,
   statusList,
@@ -24,6 +28,7 @@ export const TaskList = ({
           );
         })
       ) : (
+        // visible when no tasks present
         <TextContainer>
           <h3>No Tasks Added here</h3>
         </TextContainer>
