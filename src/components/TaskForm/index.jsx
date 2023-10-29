@@ -36,7 +36,7 @@ export const TaskForm = ({
         />
       </ModalHeader>
 
-      <Text fontSize="24px" fontWeight="700" fontColor="#000000" margin="0px">
+      <Text fontSize="24px" fontWeight="700" textColor="#000000" margin="0px">
         {heading}
       </Text>
       <InputComponent

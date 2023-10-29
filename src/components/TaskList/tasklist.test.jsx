@@ -14,7 +14,7 @@ describe("Test TaskList Component", () => {
       />
     );
 
-    const element = screen.getByText("Description: second task");
+    const element = screen.getByText("second task");
     expect(element).toBeInTheDocument();
   });
 });

@@ -17,7 +17,7 @@ export const DeleteModal = ({ handleDelete, handleDeleteModal }) => {
         <Text
           fontSize="18px"
           fontWeight="600"
-          fontColor="#00000"
+          textColor="#00000"
           margin="0px 0px 20px"
         >
           Are you sure to delete this task?

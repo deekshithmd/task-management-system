@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Task management system
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a task management system where user can create new task by providing title, description and current status of the task, once it is created it will be shown in the board, then when task is in todo or in progress state user can update the task, once it is moved to completed/done state then user can't edit it but he can delete the task from the board.
 
-## Available Scripts
+## Steps to run the application
 
-In the project directory, you can run:
+1. clone the repo `git clone https://github.com/deekshithmd/task-management-system.git`
+2. run `npm install` to install all depandencies
+3. run `npm run start` to start the application
+4. Application will run at port `3000`
 
-### `npm start`
+### Techstack used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+HTML, CSS, Javascript, ReactJS and Styled Components.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Steps to use the application
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. User need to signup by providing required details like name,email and password
+2. Once user complete signup he will be redirected to login page to login with created credentails
+3. Once login completed user lands in the home page
+4. User can create new task by clicking on `Add a Task` button, once he clicks on button modal will open asking for task details, once he provide details and click on `Create` button task will get created and updated in the task board.
+5. Once task created user will be prvided with 2 options 1.Update 2. Delete
+6. If user clicks on Update button modal will be opened with prefilled task details, now user can edit the task details like title,description and status, once he clicks on `Update` button task will be updated and shown in the task board
+7. If user clicks on Delete button, modal will open asking whether the user sure to delete the task, if he clicks on `Cancel` modal will be closed, if he clicks on `Delete` then task will get deleted and modal will get closed.
+8. Filter provided at the top of the task board, user can filter tasks based on the requirement, like All for showing all tasks and rest of the options to show tasks based on status.
+9. Once user clicks on `Logout` button user will be redirected to login page.

@@ -151,7 +151,7 @@ export default function SignupPage() {
         >
           Signup
         </Button>
-        <Text fontSize="16px" fontColor="#000">
+        <Text fontSize="16px" textColor="#000">
           Have account already?{" "}
           <LinkText href="/login">Click here to login</LinkText>
         </Text>
