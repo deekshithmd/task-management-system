@@ -9,18 +9,21 @@ This is a task management system where user can create new task by providing tit
 
 ### Backend setup
 1. Clone the backend repo ```git clone https://github.com/deekshithmd/task-management-system-backend.git```
-2. Run ```yarn install``` to install all dependencies
-3. Run ```yarn run dev``` to run the app
-4. Now backend should run at port ```8000```
-5. Once the backend is up and running at port ```8000```, proceed with front end setup which uses backend running at port ```8000```
-6. To run tests run ```yarn run test``` which will run all tests.
+2. Open the `task-management-system-backend` project folder in code editor.
+3. Now run ```yarn install``` to install all dependencies
+4. Then run ```yarn run dev``` to run the app
+5. Now backend should run at port ```8000```
+6. For sharing purpose kept the .env file in repo.
+7. Once the backend is up and running at port ```8000```, proceed with front end setup which uses backend running at port ```8000```
+8. To run tests run ```yarn run test``` which will run all tests.
 ### Frontend setup
 1. After backend setup, backend runs at port ```8000``` i.e at ```http://localhost:8000```
 2. Now clone the frontend repo ```git clone https://github.com/deekshithmd/task-management-system.git```
-3. Run `npm install` to install all dependencies
-4. Run `npm run start` to start the application
-5. Now application will start running at port ```3000``` using backend service running at port ```8000```
-6. Run ```npm run test``` to run frontend tests. 
+3. Open the `task-management-system` project folder in code editor.
+4. Run `npm install` to install all dependencies
+5. Run `npm run start` to start the application
+6. Now application will start running at port ```3000``` using backend service running at port ```8000```
+7. Run ```npm run test``` to run frontend tests. 
 
 ### Techstack used
 <b>Backend:</b> NodeJS, ExpressJS, Mongoose, MongoDB, Jest, SuperTest.<br/>
