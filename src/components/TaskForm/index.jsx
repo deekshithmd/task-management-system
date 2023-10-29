@@ -7,12 +7,12 @@ import {
   Text,
   ModalInnerContainer,
   ModalHeader,
-  Input,
   StatusSelector,
   Option,
 } from "../Reusables/SharedStyling";
 import Close from "../../assets/close.svg";
 import { ButtonComponent } from "./Button";
+import { InputComponent } from "../Input";
 
 // TaskForm component to create and update tasks
 export const TaskForm = ({
@@ -22,6 +22,7 @@ export const TaskForm = ({
   statusList,
   handleTask,
   taskUpdateType,
+  heading,
 }) => {
   return (
     <ModalInnerContainer>
@@ -35,24 +36,22 @@ export const TaskForm = ({
         />
       </ModalHeader>
 
-      <Text fontSize="24px" fontWeight="700">
-        Create your Task
+      <Text fontSize="24px" fontWeight="700" fontColor="#000000" margin="0px">
+        {heading}
       </Text>
-      <Input
+      <InputComponent
         type="text"
         placeholder="Type title here..."
         value={task?.title}
-        onChange={(e) =>
-          setTask((prev) => ({ ...prev, title: e.target.value }))
-        }
+        stateName="title"
+        inputHandler={setTask}
       />
-      <Input
+      <InputComponent
         type="text"
         placeholder="Type description here..."
         value={task?.description}
-        onChange={(e) =>
-          setTask((prev) => ({ ...prev, description: e.target.value }))
-        }
+        stateName="description"
+        inputHandler={setTask}
       />
       {/* status selection */}
       <StatusSelector

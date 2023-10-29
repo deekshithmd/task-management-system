@@ -4,6 +4,9 @@ import styled from "styled-components";
 // component imports
 import { DeleteButton } from "../DeleteButton";
 import { UpdateButton } from "../UpdateButton";
+import { Text } from "../../Reusables/SharedStyling";
+import { DeleteModal } from "./DeleteModal";
+import { useState } from "react";
 
 // TaskCard component
 export const TaskCard = ({
@@ -13,6 +16,7 @@ export const TaskCard = ({
   handleTask,
   handleModal,
 }) => {
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   return (
     <Task
       background={
@@ -24,17 +28,33 @@ export const TaskCard = ({
       }
     >
       <TaskTextContainer>
-        <span
-          style={{
-            textDecoration: task?.completed ? "line-through" : "none",
-          }}
+        <Text
+          fontSize="20px"
+          fontWeight="600"
+          fontColor="#000000"
+          margin="3px 0px"
         >
-          Title: {task?.title}
-        </span>
-        <span>Description: {task?.description}</span>
-        <span>
-          Status: {statusList.find((st) => st?.value === task?.status)?.label}
-        </span>
+          {task?.title}
+        </Text>
+        <Text
+          fontSize="16px"
+          fontWeight="400"
+          fontColor="#000000"
+          margin="5px 0px 15px 0px"
+        >
+          {task?.description}
+        </Text>
+        <StatusIndicator
+          background={
+            task?.status === "todo"
+              ? "#97a1f7"
+              : task?.status === "inprogress"
+              ? "#88db7f"
+              : "#f25c5c"
+          }
+        >
+          {statusList.find((st) => st?.value === task?.status)?.label}
+        </StatusIndicator>
       </TaskTextContainer>
       {/* action buttons */}
       <ActionContainer>
@@ -45,8 +65,14 @@ export const TaskCard = ({
             handleModal={handleModal}
           />
         )}
-        <DeleteButton handleDelete={handleDelete} task={task} />
+        <DeleteButton handleDeleteModal={() => setShowDeleteModal(true)} />
       </ActionContainer>
+      {showDeleteModal && (
+        <DeleteModal
+          handleDelete={() => handleDelete(task)}
+          handleDeleteModal={() => setShowDeleteModal(false)}
+        />
+      )}
     </Task>
   );
 };
@@ -91,4 +117,13 @@ const TaskTextContainer = styled.div`
   border-radius: 0px;
   display: flex;
   flex-direction: column;
+`;
+
+const StatusIndicator = styled.span`
+  background: ${(props) => props.background || "transparent"};
+  font-size: 16px;
+  font-weight: 400;
+  padding: 3px 5px;
+  border-radius: 10px;
+  width: fit-content;
 `;

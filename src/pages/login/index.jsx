@@ -8,9 +8,11 @@ import {
   Button,
   Text,
   LinkText,
+  ErrorMessage,
 } from "../../components/Reusables/SharedStyling";
 import { login } from "../../services/api.service";
 import { useData } from "../../Contexts/DataContext";
+import { InputComponent } from "../../components/Input";
 
 // Login page
 export default function LoginPage() {
@@ -19,33 +21,40 @@ export default function LoginPage() {
     email: "",
     password: "",
   });
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   // handling login
   const handleLogin = async (e) => {
     e.preventDefault();
-    // login api call
-    const res = await login({
-      email: userDetails.email,
-      password: userDetails.password,
-    });
-    if (res?.token) {
-      // if user exists then storing token in sessionStorage to handle page refresh
-      sessionStorage.setItem("userToken", res?.token);
-      setToken(res.token);
-      setUserData({
-        name: `${res.firstName} ${res.lastName}`,
-        email: res.email,
-      });
 
-      // restting user details after login
-      setUserDetails({
-        username: "",
-        password: "",
+    if (userDetails?.email !== "" && userDetails?.password !== "") {
+      // login api call
+      const res = await login({
+        email: userDetails.email,
+        password: userDetails.password,
       });
+      if (res?.token) {
+        // if user exists then storing token in sessionStorage to handle page refresh
+        sessionStorage.setItem("userToken", res?.token);
+        setToken(res.token);
+        setUserData({
+          name: `${res.firstName} ${res.lastName}`,
+          email: res.email,
+        });
 
-      // navigate to home page after login
-      navigate("/");
+        // restting user details after login
+        setUserDetails({
+          username: "",
+          password: "",
+        });
+
+        // navigate to home page after login
+        navigate("/");
+      }
+    } else {
+      setError(true);
+      setTimeout(() => setError(false), 5000);
     }
   };
 
@@ -55,29 +64,30 @@ export default function LoginPage() {
       <LoginContainer onSubmit={handleLogin}>
         <h1>Login</h1>
         <label htmlFor="username">
-          <Input
+          <InputComponent
             type="text"
             placeholder="Enter email..."
             name="email"
             value={userDetails?.email}
-            onChange={(e) =>
-              setUserDetails((prev) => ({ ...prev, email: e.target.value }))
-            }
+            stateName="email"
+            inputHandler={setUserDetails}
           />
         </label>
         <label htmlFor="password">
-          <Input
+          <InputComponent
             type="password"
             name="password"
             placeholder="Enter password..."
             value={userDetails?.password}
-            onChange={(e) =>
-              setUserDetails((prev) => ({ ...prev, password: e.target.value }))
-            }
+            stateName="password"
+            inputHandler={setUserDetails}
           />
         </label>
+        {error && (
+          <ErrorMessage>* Please enter correct user credentials </ErrorMessage>
+        )}
         <Button
-          radius="15px"
+          radius="5px"
           padding="8px 15px"
           width="100px"
           hover="#e6faec"
@@ -86,7 +96,7 @@ export default function LoginPage() {
         >
           Login
         </Button>
-        <Text fontSize="16px">
+        <Text fontSize="16px" fontColor="#000">
           Don`t have account?{" "}
           <LinkText href="/signup">Click here to Signup</LinkText>
         </Text>
@@ -115,11 +125,4 @@ const LoginContainer = styled.form`
   align-items: center;
   justify-content: flex-start;
   row-gap: 15px;
-`;
-
-const Input = styled.input`
-  outline: none;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 16px;
 `;

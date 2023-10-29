@@ -32,7 +32,12 @@ export const Header = () => {
           Login
         </Button>
       ) : (
-        <Button fontSize="16px" onClick={() => handleLogout()}>
+        <Button
+          fontSize="16px"
+          hover="#fc6060"
+          hoverTextColor="#fff"
+          onClick={() => handleLogout()}
+        >
           Logout
         </Button>
       )}

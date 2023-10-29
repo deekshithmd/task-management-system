@@ -97,6 +97,7 @@ export default function Home() {
               handleTask={handleCreate}
               showTaskModal={setShowCreateModal}
               taskUpdateType="create"
+              heading="Create New Task"
             />
           </Modal>
         )}
@@ -109,6 +110,7 @@ export default function Home() {
               handleTask={handleUpdate}
               showTaskModal={setShowEditModal}
               taskUpdateType="update"
+              heading="Edit your task here"
             />
           </Modal>
         )}
