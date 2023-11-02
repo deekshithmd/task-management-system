@@ -2,7 +2,8 @@
 import axios from "axios";
 
 // api endpoint
-const API_ENDPOINT = "http://localhost:8000/api";
+const API_ENDPOINT =
+  "https://task-management-system-backend-gray.vercel.app/api";
 
 // login api call
 export const login = async ({ email, password }) => {
