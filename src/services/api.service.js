@@ -65,7 +65,8 @@ export const deleteTask = async ({ id, token }) => {
     });
     return response?.data;
   } catch (e) {
-    console.log("Error in adding", e.message);
+    // console.log("Error in adding", e.message);
+    throw new Error("Delete failed");
   }
 };
 

@@ -13,6 +13,7 @@ import { Filter } from "../../components/Filter";
 import { TaskList } from "../../components/TaskList";
 import { statusList } from "../../utils/constants";
 import { Header } from "../../components/Header";
+import { useDelete } from "../../hooks/useDelete";
 
 // assets import
 import Add from "../../assets/add.svg";
@@ -34,6 +35,11 @@ export default function Home() {
     status: "todo",
   });
   const { taskList, setTaskList, token } = useData();
+  const { tasks, loading, error, handleDelete } = useDelete();
+
+  useEffect(() => {
+    setTaskList(tasks);
+  }, [loading, tasks]);
 
   const filters = [{ id: 4, label: "All", value: "all" }, ...statusList];
 
@@ -65,10 +71,14 @@ export default function Home() {
   };
 
   // Deleting task
-  const handleDelete = async (task) => {
-    const res = await deleteTask({ id: task?._id, token });
-    setTaskList(res?.tasks);
-  };
+  // const handleDelete = async (task) => {
+  //   try {
+  //     const res = await deleteTask({ id: task?._id, token });
+  //     setTaskList(res?.tasks);
+  //   } catch (e) {
+  //     alert("Deleting operation failed");
+  //   }
+  // };
 
   // Updating task content/status
   const handleUpdate = async () => {
@@ -119,14 +129,20 @@ export default function Home() {
           handleSelectedFilter={setSelectedFilter}
           selectedFilter={selectedFilter}
         />
-        <TaskList
-          filteredData={filtered}
-          task={task}
-          statusList={statusList}
-          handleDelete={handleDelete}
-          handleTask={setTaskToEdit}
-          handleModal={setShowEditModal}
-        />
+        {loading ? (
+          <LoaderContainer>
+            <h1>Loading...</h1>
+          </LoaderContainer>
+        ) : (
+          <TaskList
+            filteredData={filtered}
+            task={task}
+            statusList={statusList}
+            handleDelete={handleDelete}
+            handleTask={setTaskToEdit}
+            handleModal={setShowEditModal}
+          />
+        )}
       </Container>
     </RequiresAuth>
   );
@@ -167,4 +183,10 @@ const AddTask = styled.div`
   align-items: center;
   justify-content: center;
   background: #f5f2a6;
+`;
+
+const LoaderContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;

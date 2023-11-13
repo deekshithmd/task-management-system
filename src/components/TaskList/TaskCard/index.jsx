@@ -7,6 +7,7 @@ import { UpdateButton } from "../UpdateButton";
 import { Text } from "../../Reusables/SharedStyling";
 import { DeleteModal } from "./DeleteModal";
 import { useState } from "react";
+import { useData } from "../../../Contexts/DataContext";
 
 // TaskCard component
 export const TaskCard = ({
@@ -17,6 +18,7 @@ export const TaskCard = ({
   handleModal,
 }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const { token } = useData();
   return (
     <Task
       background={
@@ -69,7 +71,7 @@ export const TaskCard = ({
       </ActionContainer>
       {showDeleteModal && (
         <DeleteModal
-          handleDelete={() => handleDelete(task)}
+          handleDelete={() => handleDelete(task, token)}
           handleDeleteModal={() => setShowDeleteModal(false)}
         />
       )}
